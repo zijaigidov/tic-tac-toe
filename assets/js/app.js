@@ -18,8 +18,10 @@ const Gameboard = (function () {
 
   const getBoard = () => board;
 
-  /* This method will only be used in the console version and will be
-     removed later on */
+  /* 
+  This method will only be used in the console version and will be removed
+  when the web version is implemented.
+  */
   const printBoard = () => {
     const boardWithValues = board.map((row) =>
       row.map((square) => square.getValue()),
