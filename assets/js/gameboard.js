@@ -1,4 +1,8 @@
-// This module contains the logic for the game board
+/*
+This file contains the Gameboard module that contains the logic for the game
+board. 
+*/
+
 const Gameboard = (function () {
   const board = [];
   const BOARD_SIZE = 3;
