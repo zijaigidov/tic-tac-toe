@@ -11,7 +11,7 @@ const Gameboard = (function () {
   for (let row = 0; row < BOARD_SIZE; row++) {
     board[row] = [];
     for (let col = 0; col < BOARD_SIZE; col++) {
-      board[row].push(Square());
+      board[row].push(createSquare());
     }
   }
 
@@ -41,7 +41,7 @@ const Gameboard = (function () {
     }
   };
 
-  function Square() {
+  function createSquare() {
     let value = '';
 
     const setValue = (newValue) => {
