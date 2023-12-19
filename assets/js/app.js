@@ -16,6 +16,8 @@ const Gameboard = (function () {
     if (!square.getValue()) square.setValue(mark);
   };
 
+  const getBoard = () => board;
+
   /* This method will only be used in the console version and will be
      removed later on */
   const printBoard = () => {
@@ -43,5 +45,5 @@ const Gameboard = (function () {
     return { setValue, getValue };
   }
 
-  return { markSquare, printBoard, resetBoard };
+  return { markSquare, getBoard, printBoard, resetBoard };
 })();
