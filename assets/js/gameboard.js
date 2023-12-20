@@ -22,7 +22,9 @@ const Gameboard = (function () {
       value = newValue;
     };
     const getValue = () => value;
-    return { setValue, getValue };
+    const isEmpty = () => value === '';
+
+    return { setValue, getValue, isEmpty };
   }
 
   function markSquare(row, column, mark) {
