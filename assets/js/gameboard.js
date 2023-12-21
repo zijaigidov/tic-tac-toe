@@ -32,17 +32,6 @@ const Gameboard = (function () {
     if (!square.getValue()) square.setValue(mark);
   }
 
-  /* 
-  This method will only be used in the console version and will be removed
-  when the web version is implemented.
-  */
-  function printBoard() {
-    const boardWithValues = board.map((row) =>
-      row.map((square) => square.getValue()),
-    );
-    console.log(boardWithValues);
-  }
-
   function resetBoard() {
     for (let row = 0; row < BOARD_SIZE; row++) {
       for (let col = 0; col < BOARD_SIZE; col++) {
@@ -51,5 +40,5 @@ const Gameboard = (function () {
     }
   }
 
-  return { markSquare, getBoard: board, printBoard, resetBoard };
+  return { markSquare, getBoard: board, resetBoard };
 })();

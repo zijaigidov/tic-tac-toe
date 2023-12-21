@@ -16,10 +16,6 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   const player2 = createPlayer(player2Name, 'O');
   let currentPlayer = player1;
 
-  // Initial message
-  board.printBoard();
-  printPlayerTurn();
-
   function createPlayer(name, mark) {
     return { name, mark };
   }
@@ -28,36 +24,14 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
     currentPlayer = currentPlayer === player1 ? player2 : player1;
   }
 
-  function printPlayerTurn() {
-    console.log(`${currentPlayer.name}'s turn.`);
-  }
-
-  function printPlayerMove(row, column) {
-    console.log(
-      `Marking the square on row ${row} column ${column} as ${currentPlayer.mark}`,
-    );
-  }
-
   function playTurn(row, column) {
-    printPlayerMove(row, column);
     board.markSquare(row, column, currentPlayer.mark);
-    board.printBoard();
 
     const result = getResult();
     if (!result) {
       switchPlayerTurn();
-      printPlayerTurn();
     } else {
-      announceResult(result);
       board.resetBoard();
-    }
-  }
-
-  function announceResult(result) {
-    if (result === WIN)
-      console.log(`${currentPlayer.name} is the winner. Congratulations!`);
-    else {
-      console.log('The game has ended in a draw. Well played by both parties!');
     }
   }
 
