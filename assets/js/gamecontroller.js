@@ -5,7 +5,7 @@ controlling the flow of the game.
 
 function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   const board = Gameboard;
-  const boardSize = board.getBoard.length;
+  const boardSize = board.getBoard().length;
 
   // Constants for the game states
   const ONGOING = 0;
@@ -60,9 +60,8 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
       const maxFrequency = boardSize;
 
       for (let col = 0; col < boardSize; col++) {
-        const square = board.getBoard[row][col];
-        const mark = square.getValue();
-        if (!square.isEmpty()) marksByFrequencies[mark]++;
+        const mark = board.getBoard()[row][col];
+        if (mark) marksByFrequencies[mark]++;
       }
       // If one of the marks has the maximum frequency, that player has won
       if (Object.values(marksByFrequencies).includes(maxFrequency))
@@ -80,9 +79,8 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
       const maxFrequency = boardSize;
 
       for (let row = 0; row < boardSize; row++) {
-        const square = board.getBoard[row][col];
-        const mark = square.getValue();
-        if (!square.isEmpty()) marksByFrequencies[mark]++;
+        const mark = board.getBoard()[row][col];
+        if (mark) marksByFrequencies[mark]++;
       }
       if (Object.values(marksByFrequencies).includes(maxFrequency))
         hasWon = true;
@@ -98,9 +96,8 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
 
     // Diagonal 1: Top left to bottom right
     for (let dim = 0; dim < boardSize; dim++) {
-      const square = board.getBoard[dim][dim];
-      const mark = square.getValue();
-      if (!square.isEmpty()) marksByFrequencies[mark]++;
+      const mark = board.getBoard()[dim][dim];
+      if (mark) marksByFrequencies[mark]++;
     }
     if (Object.values(marksByFrequencies).includes(maxFrequency)) hasWon = true;
 
@@ -110,9 +107,8 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
 
     // Diagonal 2: Bottom left to top right
     for (let dim = boardSize - 1; dim >= 0 && !hasWon; dim--) {
-      const square = board.getBoard[dim][dim];
-      const mark = square.getValue();
-      if (!square.isEmpty()) marksByFrequencies[mark]++;
+      const mark = board.getBoard()[dim][dim];
+      if (mark) marksByFrequencies[mark]++;
     }
     if (Object.values(marksByFrequencies).includes(maxFrequency)) hasWon = true;
 
@@ -123,7 +119,7 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
     let totalMarks = 0;
     for (let row = 0; row < boardSize; row++) {
       for (let col = 0; col < boardSize; col++) {
-        const mark = board.getBoard[row][col].getValue();
+        const mark = board.getBoard()[row][col];
         if (mark) totalMarks++;
       }
     }
@@ -132,7 +128,7 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   }
 
   return {
-    getBoard: board.getBoard,
+    getBoard: board.getBoard(),
     getCurrentPlayer: currentPlayer,
     playTurn,
   };

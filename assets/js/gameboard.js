@@ -22,14 +22,18 @@ const Gameboard = (function () {
       value = newValue;
     };
     const getValue = () => value;
-    const isEmpty = () => value === '';
 
-    return { setValue, getValue, isEmpty };
+    return { setValue, getValue };
   }
 
   function markSquare(row, column, mark) {
     const square = board[row][column];
     if (!square.getValue()) square.setValue(mark);
+  }
+
+  // Returns a copy of the board with values instead of objects
+  function getBoard() {
+    return board.map((row) => row.map((square) => square.getValue()));
   }
 
   function resetBoard() {
@@ -40,5 +44,5 @@ const Gameboard = (function () {
     }
   }
 
-  return { markSquare, getBoard: board, resetBoard };
+  return { markSquare, getBoard, resetBoard };
 })();
