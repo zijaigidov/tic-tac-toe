@@ -100,19 +100,21 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
     const maxFrequency = boardSize;
 
     // Diagonal 1: Top left to bottom right
-    for (let dim = 0; dim < boardSize; dim++) {
-      const mark = board.getBoard()[dim][dim];
+    for (let row = 0; row < boardSize; row++) {
+      const col = row;
+      const mark = board.getBoard()[row][col];
       if (mark) marksByFrequencies[mark]++;
     }
     if (Object.values(marksByFrequencies).includes(maxFrequency)) hasWon = true;
 
-    // Reset the tally
+    // Reset the frequency map
     marksByFrequencies.X = 0;
     marksByFrequencies.O = 0;
 
     // Diagonal 2: Bottom left to top right
-    for (let dim = boardSize - 1; dim >= 0 && !hasWon; dim--) {
-      const mark = board.getBoard()[dim][dim];
+    for (let row = 0; row < boardSize && !hasWon; row++) {
+      const col = boardSize - 1 - row;
+      const mark = board.getBoard()[row][col];
       if (mark) marksByFrequencies[mark]++;
     }
     if (Object.values(marksByFrequencies).includes(maxFrequency)) hasWon = true;
