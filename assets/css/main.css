@@ -1,1 +1,51 @@
-/*# sourceMappingURL=main.css.map */
+html,
+body {
+  height: 100%;
+}
+
+html {
+  font-family: "Arial";
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#gameboard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+}
+
+.board-row {
+  display: flex;
+  flex: 1;
+}
+.board-row:not(:last-child) {
+  border-bottom: 5px solid black;
+}
+
+/* Reset the user agent stylesheet's button styles */
+button {
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  border: none;
+  /* To remove any other default styles that might've been missed*/
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.board-square {
+  flex: 1;
+  font-size: 3rem;
+  cursor: pointer;
+}
+.board-square:not(:last-child) {
+  border-right: 5px solid black;
+}/*# sourceMappingURL=main.css.map */

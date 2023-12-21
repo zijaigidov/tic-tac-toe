@@ -9,5 +9,27 @@
     <script src="./assets/js/gameboard.js"></script>
     <script src="./assets/js/gamecontroller.js"></script>
   </head>
-  <body></body>
+  <body>
+    <h1>TIC-TAC-TOE</h1>
+    <div id="gameboard">
+      <!-- Use <button> for the board squares for accessibility -->
+      <div class="board-row" data-row="0">
+        <button class="board-square" data-column="0">X</button>
+        <button class="board-square" data-column="1">O</button>
+        <button class="board-square" data-column="2">X</button>
+      </div>
+
+      <div class="board-row" data-row="1">
+        <button class="board-square" data-column="0">X</button>
+        <button class="board-square" data-column="1">O</button>
+        <button class="board-square" data-column="2">O</button>
+      </div>
+
+      <div class="board-row" data-row="2">
+        <button class="board-square" data-column="0">O</button>
+        <button class="board-square" data-column="1">X</button>
+        <button class="board-square" data-column="2">X</button>
+      </div>
+    </div>
+  </body>
 </html>
