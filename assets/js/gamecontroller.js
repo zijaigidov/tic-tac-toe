@@ -37,6 +37,7 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
       switchPlayerTurn();
     } else {
       board.resetBoard();
+      currentPlayer = player1;
     }
   }
 
