@@ -11,6 +11,7 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   const ONGOING = 0;
   const WIN = 1;
   const TIE = 2;
+  let gameState = ONGOING;
 
   const player1 = createPlayer(player1Name, 'X');
   const player2 = createPlayer(player2Name, 'O');
@@ -24,11 +25,15 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
     currentPlayer = currentPlayer === player1 ? player2 : player1;
   }
 
+  function getGameState() {
+    return gameState;
+  }
+
   function playTurn(row, column) {
     board.markSquare(row, column, currentPlayer.mark);
 
-    const result = getResult();
-    if (!result) {
+    gameState = getResult();
+    if (!gameState) {
       switchPlayerTurn();
     } else {
       board.resetBoard();
@@ -130,6 +135,10 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   return {
     getBoard: () => board.getBoard(),
     getCurrentPlayer: () => currentPlayer,
+    getGameState,
+    ONGOING,
+    WIN,
+    TIE,
     playTurn,
   };
 }
