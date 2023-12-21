@@ -27,8 +27,7 @@ const Gameboard = (function () {
   }
 
   function markSquare(row, column, mark) {
-    const square = board[row][column];
-    if (!square.getValue()) square.setValue(mark);
+    board[row][column].setValue(mark);
   }
 
   // Returns a copy of the board with values instead of objects
