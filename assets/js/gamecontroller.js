@@ -128,8 +128,8 @@ function GameController(player1Name = 'Player 1', player2Name = 'Player 2') {
   }
 
   return {
-    getBoard: board.getBoard(),
-    getCurrentPlayer: currentPlayer,
+    getBoard: () => board.getBoard(),
+    getCurrentPlayer: () => currentPlayer,
     playTurn,
   };
 }
