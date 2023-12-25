@@ -1,0 +1,17 @@
+/* Partial stylesheet for style resets */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  border: none;
+  appearance: none;
+}

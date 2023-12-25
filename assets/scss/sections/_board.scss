@@ -1,0 +1,27 @@
+/* Partial stylesheet for the Tic-Tac-Toe board */
+
+#gameboard {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 300px;
+}
+
+.board-row {
+  display: flex;
+  flex: 1;
+
+  &:not(:last-child) {
+    border-bottom: 5px solid black;
+  }
+}
+
+.board-square {
+  flex: 1;
+  font-size: 3rem;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    border-right: 5px solid black;
+  }
+}
