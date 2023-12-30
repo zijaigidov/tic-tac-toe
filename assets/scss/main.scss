@@ -1,7 +1,9 @@
 /* Main Sass stylesheet */
 
-@import 'abstracts/resets';
+@import 'abstracts/variables';
 @import 'abstracts/mixins';
+@import 'abstracts/resets';
 
 @import 'sections/document';
+@import 'sections/header';
 @import 'sections/board';

@@ -1,0 +1,23 @@
+/* Partial stylesheet for header */
+
+.header {
+  width: 100%;
+  margin-top: 3vh;
+
+  h1 {
+    position: relative;
+    text-align: center;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      
+      width: 125px;
+      height: 5px;
+      background: $white;
+    }
+  }
+}

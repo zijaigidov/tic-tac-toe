@@ -1,17 +1,12 @@
 /* Partial stylesheet for document-wide styles */
 
-html,
-body {
-  height: 100%;
-}
-
 html {
   font-family: 'Arial';
+  color: $white;
+  max-height: 100vh;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background: $dark-grey;
+  height: 100%;
 }

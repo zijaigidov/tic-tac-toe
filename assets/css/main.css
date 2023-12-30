@@ -1,4 +1,6 @@
 /* Main Sass stylesheet */
+/* Partial stylesheet for variables */
+/* Partial stylesheet for Sass mixins */
 /* Partial stylesheet for style resets */
 *,
 *::before,
@@ -18,22 +20,36 @@ button {
           appearance: none;
 }
 
-/* Partial stylesheet for Sass mixins */
 /* Partial stylesheet for document-wide styles */
-html,
+html {
+  font-family: "Arial";
+  color: #f5f5f5;
+  max-height: 100vh;
+}
+
 body {
+  background: #22242a;
   height: 100%;
 }
 
-html {
-  font-family: "Arial";
+/* Partial stylesheet for header */
+.header {
+  width: 100%;
+  margin-top: 3vh;
 }
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.header h1 {
+  position: relative;
+  text-align: center;
+}
+.header h1:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 125px;
+  height: 5px;
+  background: #f5f5f5;
 }
 
 /* Partial stylesheet for the Tic-Tac-Toe board */
